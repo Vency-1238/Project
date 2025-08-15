@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en" class="">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Committee - Punnerva</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = { darkMode: 'class' }
+    </script>
+    <style> 
+        body { font-family: 'Inter', sans-serif; } 
+        .member-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .member-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .dark .member-card:hover {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-green-50 text-gray-800 dark:bg-gray-900 dark:text-gray-200 transition-colors duration-300">
+
+    <header class="bg-white dark:bg-gray-800 shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-2 text-2xl font-bold text-green-700 dark:text-green-400">
+                <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" fill="currentColor"/><path d="M12 4c-2.9 0-5.48 1.6-6.85 4.01C6.27 6.44 8.9 5 12 5s5.73 1.44 6.85 3.01C17.48 5.6 14.9 4 12 4zm0 14c2.9 0 5.48-1.6 6.85-4.01C17.73 15.56 15.1 17 12 17s-5.73-1.44-6.85-3.01C6.52 16.4 9.1 18 12 18z" fill="currentColor" fill-opacity="0.5"/></svg>
+                <span>Punnerva</span>
+            </a>
+            <div class="hidden md:flex items-center space-x-6">
+                <a href="index.html" class="text-gray-600 dark:text-gray-300 hover:text-green-700 dark:hover:text-green-400 transition">Home</a>
+                <a href="about.html" class="text-gray-600 dark:text-gray-300 hover:text-green-700 dark:hover:text-green-400 transition">About Us</a>
+                <a href="committee.html" class="text-green-700 dark:text-green-400 font-semibold">Committee</a>
+                <a href="events.html" class="text-gray-600 dark:text-gray-300 hover:text-green-700 dark:hover:text-green-400 transition">Events</a>
+                <a href="contact.html" class="text-gray-600 dark:text-gray-300 hover:text-green-700 dark:hover:text-green-400 transition">Contact Us</a>
+                <button id="theme-toggle" class="text-gray-600 dark:text-gray-300 hover:text-green-700 dark:hover:text-green-400 focus:outline-none">
+                    <svg id="theme-toggle-moon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+                    <svg id="theme-toggle-sun" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                </button>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden flex items-center text-gray-600 dark:text-gray-300">
+                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-800">
+            <a href="index.html" class="block py-2 px-4 text-sm hover:bg-green-100 dark:hover:bg-gray-700">Home</a>
+            <a href="about.html" class="block py-2 px-4 text-sm hover:bg-green-100 dark:hover:bg-gray-700">About Us</a>
+            <a href="committee.html" class="block py-2 px-4 text-sm text-green-700 dark:text-green-400 bg-green-100 dark:bg-gray-700">Committee</a>
+            <a href="events.html" class="block py-2 px-4 text-sm hover:bg-green-100 dark:hover:bg-gray-700">Events</a>
+            <a href="contact.html" class="block py-2 px-4 text-sm hover:bg-green-100 dark:hover:bg-gray-700">Contact Us</a>
+        </div>
+    </header>
+
+    <main class="py-20">
+        <div class="container mx-auto px-6">
+            <h1 class="text-4xl font-bold text-center mb-4">Our Committees</h1>
+            <p class="text-center text-lg text-gray-600 dark:text-gray-400 mb-12">Meet the dedicated teams, past and present, leading Punnerva.</p>
+            
+            <section id="committee-2025-26">
+                <h2 class="text-3xl font-bold text-center my-16">2025 - 2026 Committee</h2>
+                
+                <div class="flex flex-wrap justify-center gap-8 mb-12">
+                    <div class="member-card bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg text-center w-full sm:w-64">
+                        <img src="./photo/vency.png" alt="Vency Thummar" class="w-32 h-32 rounded-full mx-auto mb-4">
+                        <h3 class="text-xl font-bold">Vency Thummar</h3>
+                        <p class="text-green-700 dark:text-green-400 font-semibold">President</p>
+                    </div>
+                    <div class="member-card bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg text-center w-full sm:w-64">
+                        <img src="./photo/simran.png" alt="Simran Sharma" class="w-32 h-32 rounded-full mx-auto mb-4">
+                        <h3 class="text-xl font-bold">Simran Sharma</h3>
+                        <p class="text-green-700 dark:text-green-400 font-semibold">Vice President</p>
+                    </div>
+                </div>
+                
+                <div class="flex justify-center mb-12">
+                     <div class="member-card bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg text-center w-full sm:w-64">
+                        <img src="./photo/khushi.png" alt="Khushi Khunt" class="w-32 h-32 rounded-full mx-auto mb-4">
+                        <h3 class="text-xl font-bold">Khushi Khunt</h3>
+                        <p class="text-green-700 dark:text-green-400 font-semibold">Advisor</p>
+                    </div>
+                </div>
+
+                <hr class="border-gray-300 dark:border-gray-700 my-12 max-w-3xl mx-auto">
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+                    <div class="member-card bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg text-center">
+                        <img src="./photo/prisha.png" alt="Prisha Goswami" class="w-24 h-24 rounded-full mx-auto mb-4">
+                        <h3 class="text-lg font-bold">Prisha Goswami</h3>
+                        <p class="text-green-700 dark:text-green-400 font-semibold text-sm">Documentation Head</p>
+                    </div>
+                    <div class="member-card bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg text-center">
+                        <img src="./photo/Het.png" alt="Het Patel" class="w-24 h-24 rounded-full mx-auto mb-4">
+                        <h3 class="text-lg font-bold">Het Patel</h3>
+                        <p class="text-green-700 dark:text-green-400 font-semibold text-sm">Documentation Head</p>
+                    </div>
+                    <div class="member-card bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg text-center">
+                        <img src="./photo/donna.png" alt="Donna Kasundra" class="w-24 h-24 rounded-full mx-auto mb-4">
+                        <h3 class="text-lg font-bold">Donna Kasundra</h3>
+                        <p class="text-green-700 dark:text-green-400 font-semibold text-sm">Yoga Performer Head</p>
+                    </div>
+                    <div class="member-card bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg text-center">
+                        <img src="./photo/meghan.png" alt="Megha Soni" class="w-24 h-24 rounded-full mx-auto mb-4">
+                        <h3 class="text-lg font-bold">Megha Soni</h3>
+                        <p class="text-green-700 dark:text-green-400 font-semibold text-sm">Yoga Performer Head</p>
+                    </div>
+                    <div class="member-card bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg text-center">
+                        <img src="./photo/dia.png" alt="Dia Sanil" class="w-24 h-24 rounded-full mx-auto mb-4">
+                        <h3 class="text-lg font-bold">Dia Sanil</h3>
+                        <p class="text-green-700 dark:text-green-400 font-semibold text-sm">EM and Logistics Head</p>
+                    </div>
+                    <div class="member-card bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg text-center">
+                        <img src="./photo/drishiti.png" alt="Drishti Dembla" class="w-24 h-24 rounded-full mx-auto mb-4">
+                        <h3 class="text-lg font-bold">Drishti Dembla</h3>
+                        <p class="text-green-700 dark:text-green-400 font-semibold text-sm">EM and Logistics Head</p>
+                    </div>
+                    <div class="member-card bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg text-center">
+                        <img src="./photo/veli.png" alt="Veli Champaneria" class="w-24 h-24 rounded-full mx-auto mb-4">
+                        <h3 class="text-lg font-bold">Veli Champaneria</h3>
+                        <p class="text-green-700 dark:text-green-400 font-semibold text-sm">Graphic Designing Head</p>
+                    </div>
+                    <div class="member-card bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg text-center">
+                        <img src="./photo/krina.png" alt="Krina Senjaliya" class="w-24 h-24 rounded-full mx-auto mb-4">
+                        <h3 class="text-lg font-bold">Krina Senjaliya</h3>
+                        <p class="text-green-700 dark:text-green-400 font-semibold text-sm">Graphic Designing Head</p>
+                    </div>
+                    <div class="member-card bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg text-center">
+                        <img src="./photo/priyansh.png" alt="Priyansh Shukla" class="w-24 h-24 rounded-full mx-auto mb-4">
+                        <h3 class="text-lg font-bold">Priyansh Shukla</h3>
+                        <p class="text-green-700 dark:text-green-400 font-semibold text-sm">Publicity Head</p>
+                    </div>
+                    <div class="member-card bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg text-center">
+                        <img src="./photo/aastha.png" alt="Aastha Bathija" class="w-24 h-24 rounded-full mx-auto mb-4">
+                        <h3 class="text-lg font-bold">Aastha Bathija</h3>
+                        <p class="text-green-700 dark:text-green-400 font-semibold text-sm">Publicity Head</p>
+                    </div>
+                    <div class="member-card bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg text-center">
+                        <img src="./photo/aditi.png" alt="Aditi Patel" class="w-24 h-24 rounded-full mx-auto mb-4">
+                        <h3 class="text-lg font-bold">Aditi Patel</h3>
+                        <p class="text-green-700 dark:text-green-400 font-semibold text-sm">Yoga Instructor</p>
+                    </div>
+                    <div class="member-card bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg text-center">
+                        <img src="./photo/palak.png" alt="Palak Samtani" class="w-24 h-24 rounded-full mx-auto mb-4">
+                        <h3 class="text-lg font-bold">Palak Samtani</h3>
+                        <p class="text-green-700 dark:text-green-400 font-semibold text-sm">Yoga Instructor</p>
+                    </div>
+                </div>
+            </section>
+            
+            <hr class="border-gray-400 dark:border-gray-600 my-20 border-dashed">
+
+            <section id="committee-2024-25">
+                <h2 class="text-3xl font-bold text-center my-16">2024 - 2025 Committee</h2>
+                 <div class="flex flex-wrap justify-center gap-8 mb-12">
+                    <div class="member-card bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg text-center w-full sm:w-64">
+                        <img src="./photo/khushi.png" alt="Khushi Khunt" class="w-32 h-32 rounded-full mx-auto mb-4">
+                        <h3 class="text-xl font-bold">Khushi Khunt</h3>
+                        <p class="text-green-700 dark:text-green-400 font-semibold">President</p>
+                    </div>
+                    <div class="member-card bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg text-center w-full sm:w-64">
+                        <img src="./photo/ishwa.png" alt="Ishwa Raval" class="w-32 h-32 rounded-full mx-auto mb-4">
+                        <h3 class="text-xl font-bold">Ishwa Raval</h3>
+                        <p class="text-green-700 dark:text-green-400 font-semibold">Vice President</p>
+                    </div>
+                </div>
+                
+                 <div class="flex flex-wrap justify-center gap-8 mb-12">
+                    <div class="member-card bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg text-center w-full sm:w-64">
+                        <img src="./photo/dhruvi.png" alt="Dhruvi Parsana" class="w-32 h-32 rounded-full mx-auto mb-4">
+                        <h3 class="text-xl font-bold">Dhruvi Parsana</h3>
+                        <p class="text-green-700 dark:text-green-400 font-semibold">Advisor</p>
+                    </div>
+                    <div class="member-card bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg text-center w-full sm:w-64">
+                        <img src="./photo/keval.png" alt="Reval Shah" class="w-32 h-32 rounded-full mx-auto mb-4">
+                        <h3 class="text-xl font-bold">Keval Shah</h3>
+                        <p class="text-green-700 dark:text-green-400 font-semibold">Advisor</p>
+                    </div>
+                </div>
+
+                <hr class="border-gray-300 dark:border-gray-700 my-12 max-w-3xl mx-auto">
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+                    <div class="member-card bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg text-center">
+                        <img src="./photo/vency.png" alt="Vency Thummar" class="w-24 h-24 rounded-full mx-auto mb-4">
+                        <h3 class="text-lg font-bold">Vency Thummar</h3>
+                        <p class="text-green-700 dark:text-green-400 font-semibold text-sm">Graphic Designing Head</p>
+                    </div>
+                    <div class="member-card bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg text-center">
+                        <img src="./photo/simran.png" alt="Simran Sharma" class="w-24 h-24 rounded-full mx-auto mb-4">
+                        <h3 class="text-lg font-bold">Simran Sharma</h3>
+                        <p class="text-green-700 dark:text-green-400 font-semibold text-sm">Graphic Designing Head</p>
+                    </div>
+                    <div class="member-card bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg text-center">
+                        <img src="./photo/hamisha.png" alt="Hamisha" class="w-24 h-24 rounded-full mx-auto mb-4">
+                        <h3 class="text-lg font-bold">Hamisha</h3>
+                        <p class="text-green-700 dark:text-green-400 font-semibold text-sm">Publicity Head</p>
+                    </div>
+                    <div class="member-card bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg text-center">
+                        <img src="./photo/devarsh.png" alt="Devarsh Hirvaniya" class="w-24 h-24 rounded-full mx-auto mb-4">
+                        <h3 class="text-lg font-bold">Devarsh Hirvaniya</h3>
+                        <p class="text-green-700 dark:text-green-400 font-semibold text-sm">Documentation Head</p>
+                    </div>
+                     <div class="member-card bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg text-center">
+                        <img src="./photo/eshan.png" alt="Eshaan Khanchandani" class="w-24 h-24 rounded-full mx-auto mb-4">
+                        <h3 class="text-lg font-bold">Eshaan Khanchandani</h3>
+                        <p class="text-green-700 dark:text-green-400 font-semibold text-sm">EM and Logistics</p>
+                    </div>
+                    <div class="member-card bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg text-center">
+                        <img src="./photo/pranav.png" alt="Pranav Mishra" class="w-24 h-24 rounded-full mx-auto mb-4">
+                        <h3 class="text-lg font-bold">Pranav Mishra</h3>
+                        <p class="text-green-700 dark:text-green-400 font-semibold text-sm">EM and Logistics</p>
+                    </div>
+                    <div class="member-card bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg text-center">
+                        <img src="./photo/Tanisha .png" alt="Tanisha Jain" class="w-24 h-24 rounded-full mx-auto mb-4">
+                        <h3 class="text-lg font-bold">Tanisha Jain</h3>
+                        <p class="text-green-700 dark:text-green-400 font-semibold text-sm">Performer Head</p>
+                    </div>
+                    <div class="member-card bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg text-center">
+                        <img src="./photo/trupti.png" alt="Trupti Panchal" class="w-24 h-24 rounded-full mx-auto mb-4">
+                        <h3 class="text-lg font-bold">Trupti Panchal</h3>
+                        <p class="text-green-700 dark:text-green-400 font-semibold text-sm">Performer Head</p>
+                    </div>
+                    <div class="member-card bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg text-center">
+                        <img src="./photo/sannvi.png" alt="Saanvi Baweja" class="w-24 h-24 rounded-full mx-auto mb-4">
+                        <h3 class="text-lg font-bold">Saanvi Baweja</h3>
+                        <p class="text-green-700 dark:text-green-400 font-semibold text-sm">Yoga Instructor</p>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p>&copy; 2025 Punnerva. All Rights Reserved.</p>
+            <div class="flex justify-center space-x-4 mt-4">
+                 <a href="https://www.instagram.com/punnerva.pdeu" target="_blank" class="hover:text-green-400">Instagram</a>
+                 <a href="#" class="hover:text-green-400">Facebook</a>
+                 <a href="#" class="hover:text-green-400">Twitter</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
